@@ -73,7 +73,7 @@ const Navbar = () => {
               scrollToTop()
             }}
           >
-            <img src="/tl.png" alt="Tomer Amitai Logo" className="h-12 w-12 scale-[1.5] object-contain ml-7" />
+            <img src="/tl.png" alt="Tomer Amitai Logo" className="h-12 w-12 scale-[1.5] object-contain" />
           </RouterLink>
           
           {/* Desktop Navigation */}
