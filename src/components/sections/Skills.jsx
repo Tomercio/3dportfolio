@@ -8,31 +8,31 @@ const skillCategories = [
   {
     title: 'Frontend Development',
     skills: [
-      { name: 'JavaScript', icon: <SiJavascript className="text-yellow-400" />, level: 'Expert' },
-      { name: 'React', icon: <SiReact className="text-cyan-400" />, level: 'Expert' },
-      { name: 'TypeScript', icon: <SiTypescript className="text-blue-400" />, level: 'Advanced' },
-      { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-sky-400" />, level: 'Expert' },
-      { name: 'Three.js', icon: <FaCube className="text-purple-400" />, level: 'Proficient' },
+      { name: 'JavaScript', icon: <SiJavascript className="text-yellow-400" /> },
+      { name: 'React', icon: <SiReact className="text-cyan-400" /> },
+      { name: 'TypeScript', icon: <SiTypescript className="text-blue-400" /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-sky-400" /> },
+      { name: 'Three.js', icon: <FaCube className="text-purple-400" /> },
     ],
   },
   {
     title: 'Backend & DevOps',
     skills: [
-      { name: 'Node.js', icon: <SiNodedotjs className="text-green-500" />, level: 'Advanced' },
-      { name: 'Python', icon: <SiPython className="text-yellow-300" />, level: 'Proficient' },
-      { name: 'Docker', icon: <SiDocker className="text-blue-300" />, level: 'Proficient' },
-      { name: 'AWS', icon: <FaAws className="text-orange-400" />, level: 'Familiar' },
-      { name: 'Firebase', icon: <SiFirebase className="text-yellow-400" />, level: 'Advanced' },
+      { name: 'Node.js', icon: <SiNodedotjs className="text-green-500" /> },
+      { name: 'Python', icon: <SiPython className="text-yellow-300" /> },
+      { name: 'Docker', icon: <SiDocker className="text-blue-300" /> },
+      { name: 'AWS', icon: <FaAws className="text-orange-400" /> },
+      { name: 'Firebase', icon: <SiFirebase className="text-yellow-400" /> },
     ],
   },
   {
     title: 'Security Tools',
     skills: [
-      { name: 'Penetration Testing', icon: <FaShieldAlt className="text-red-400" />, level: 'Advanced' },
-      { name: 'SAST/DAST', icon: <SiTestinglibrary className="text-pink-400" />, level: 'Advanced' },
-      { name: 'Log Analysis', icon: <FaChartBar className="text-blue-400" />, level: 'Proficient' },
-      { name: 'Network Security', icon: <FaNetworkWired className="text-green-400" />, level: 'Proficient' },
-      { name: 'SIEM', icon: <FaSearch className="text-yellow-400" />, level: 'Familiar' },
+      { name: 'Penetration Testing', icon: <FaShieldAlt className="text-red-400" /> },
+      { name: 'SAST/DAST', icon: <SiTestinglibrary className="text-pink-400" /> },
+      { name: 'Log Analysis', icon: <FaChartBar className="text-blue-400" /> },
+      { name: 'Network Security', icon: <FaNetworkWired className="text-green-400" /> },
+      { name: 'SIEM', icon: <FaSearch className="text-yellow-400" /> },
     ],
   },
 ]
@@ -65,13 +65,12 @@ const Skills = () => {
                   <motion.div
                     key={i}
                     whileHover={{ scale: 1.03, boxShadow: '0 2px 16px 0 rgba(59,130,246,0.18)' }}
-                    className="bg-dark-700/80 rounded-lg flex flex-row items-center justify-between px-4 py-2 shadow border border-dark-600 transition-all duration-200 min-h-[48px]"
+                    className="bg-dark-700/80 rounded-lg flex flex-row items-center justify-center px-4 py-2 shadow border border-dark-600 transition-all duration-200 min-h-[48px]"
                   >
                     <div className="flex items-center gap-3">
                       <span className="text-2xl">{skill.icon}</span>
                       <span className="font-semibold text-gray-100 text-base">{skill.name}</span>
                     </div>
-                    <span className="text-xs text-primary-400 font-mono tracking-wide uppercase">{skill.level}</span>
                   </motion.div>
                 ))}
               </div>
