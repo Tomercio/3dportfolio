@@ -9,6 +9,7 @@ const Contact = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [showThankYou, setShowThankYou] = useState(false)
   
   // Form handler
   const handleChange = (e) => {
@@ -16,21 +17,40 @@ const Contact = () => {
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    // Simulate form submission
-    setTimeout(() => {
+    setIsSubmitted(false)
+    setShowThankYou(false)
+    try {
+      const response = await fetch('https://formspree.io/f/xeogdvjd', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+        }),
+      })
+      if (response.ok) {
+        setIsSubmitted(true)
+        setShowThankYou(true)
+        setFormState({ name: '', email: '', message: '' })
+        setTimeout(() => {
+          setShowThankYou(false)
+        }, 5000)
+      } else {
+        // Optionally handle error
+        alert('There was an error submitting the form. Please try again.')
+      }
+    } catch (error) {
+      alert('There was an error submitting the form. Please try again.')
+    } finally {
       setIsSubmitting(false)
-      setIsSubmitted(true)
-      setFormState({ name: '', email: '', message: '' })
-      
-      // Reset submission status after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false)
-      }, 5000)
-    }, 1500)
+    }
   }
   
   // Social links with improved styling
@@ -144,93 +164,98 @@ const Contact = () => {
                 <h3 className="text-xl font-bold mb-4 text-white">Send a Message</h3>
               </motion.div>
               
-              {isSubmitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="bg-green-900/20 border border-green-800/30 rounded-lg p-5 text-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-10 w-10 mx-auto text-green-500 mb-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <h4 className="text-lg font-bold mb-2 text-green-400">
-                    Message Sent Successfully!
-                  </h4>
-                  <p className="text-green-300 text-sm">
-                    Thank you for reaching out. I'll get back to you soon.
-                  </p>
-                </motion.div>
-              ) : (
-                <form method="POST" action="https://formspree.io/f/xeogdvjd" >
-                  <motion.div variants={itemVariants} className="mb-4">
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-300 mb-1"
+              {showThankYou && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
+                  <div className="bg-dark-800 rounded-xl shadow-lg p-8 max-w-sm w-full text-center border border-primary-700">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-12 w-12 mx-auto text-primary-500 mb-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
                     >
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      className="w-full px-3 py-2 rounded-md border border-dark-600 bg-dark-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
-                    />
-                  </motion.div>
-                  
-                  <motion.div variants={itemVariants} className="mb-4">
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-300 mb-1"
-                    >
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      className="w-full px-3 py-2 rounded-md border border-dark-600 bg-dark-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
-                    />
-                  </motion.div>
-                  
-                  <motion.div variants={itemVariants} className="mb-5">
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-300 mb-1"
-                    >
-                      Your Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      required
-                      className="w-full px-3 py-2 rounded-md border border-dark-600 bg-dark-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
-                    ></textarea>
-                  </motion.div>
-                  
-                  <motion.div variants={itemVariants}>
-                    <button
-                      type="submit"
-                      className="w-full py-2 px-4 rounded-md bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors disabled:opacity-60"
-                    >
-                      Send Message
-                    </button>
-                  </motion.div>
-                </form>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <h4 className="text-xl font-bold mb-2 text-primary-400">
+                      Thanks for submitting!
+                    </h4>
+                    <p className="text-primary-200 text-base">
+                      We will be in touch soon.
+                    </p>
+                  </div>
+                </div>
               )}
+              
+              <form onSubmit={handleSubmit}>
+                <motion.div variants={itemVariants} className="mb-4">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-300 mb-1"
+                  >
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formState.name}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 rounded-md border border-dark-600 bg-dark-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
+                  />
+                </motion.div>
+                
+                <motion.div variants={itemVariants} className="mb-4">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-300 mb-1"
+                  >
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formState.email}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 rounded-md border border-dark-600 bg-dark-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
+                  />
+                </motion.div>
+                
+                <motion.div variants={itemVariants} className="mb-5">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-300 mb-1"
+                  >
+                    Your Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    required
+                    value={formState.message}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 rounded-md border border-dark-600 bg-dark-700 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
+                  ></textarea>
+                </motion.div>
+                
+                <motion.div variants={itemVariants}>
+                  <button
+                    type="submit"
+                    className="w-full py-2 px-4 rounded-md bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors disabled:opacity-60"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </button>
+                </motion.div>
+              </form>
             </motion.div>
             
             {/* Connect Section */}
