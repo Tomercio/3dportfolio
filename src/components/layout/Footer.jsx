@@ -79,7 +79,7 @@ const Footer = () => {
           <img src="/tl.png" alt="Tomer Amitai Logo" className="h-14 w-14 scale-[1.7] object-contain" />
         </span>
         <p className="text-gray-500 dark:text-gray-400 text-base italic mb-4">
-          Developer & Researcher
+          Web Developer & Researcher
         </p>
         <div className="flex items-center justify-center space-x-6 mb-6">
           {socialLinks.map((link) => (
