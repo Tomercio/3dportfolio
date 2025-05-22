@@ -79,7 +79,7 @@ const Projects = () => {
       details: 'PETEKS is a Flutter-built note-taking app that combines rich-text editing (via flutter_quill), multimedia embeds and pattern-lock security for encrypted access. It leverages local/cloud storage, image and share services to enable seamless syncing and collaborative editing across devices.',
       image: '/peteksScreen.jpg',
       tags: ['Flutter', 'Dart', 'Rich-text Editor','Audio recording/playback', 'Security/locking', 'Hashing/crypto'],
-      githubUrl: 'https://github.com/Tomercio/peteks',
+      githubUrl: 'https://github.com/Tomercio',
     },
   ]
   
