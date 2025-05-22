@@ -17,17 +17,17 @@ const About = () => {
   // Timeline items with improved styling
   const timelineItems = [
     {
-      period: "2017-2022",
+      period: "2018-2023",
       title: "Sales & Business Development",
       description: "Led business development and sales initiatives at tech startups, gaining valuable experience in understanding client needs and product-market fit."
     },
     {
-      period: "2022-2023",
+      period: "2023-2024",
       title: "Transition to Development",
-      description: "Made a focused transition to web development, building a foundation in JavaScript, React, and modern frontend tools."
+      description: "Made a focused transition to web development, building a foundation in JavaScript, React, Web Securityand modern frontend tools."
     },
     {
-      period: "2023-Present",
+      period: "2024-Present",
       title: "Developer & Researcher",
       description: "Building rich web interfaces and mobile applications using modern technologies and best practices."
     }
