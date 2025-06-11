@@ -1,7 +1,5 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { FaJs, FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDocker, FaPython, FaFigma, FaPencilRuler, FaLinux } from 'react-icons/fa'
-import { SiTypescript, SiNextdotjs, SiTailwindcss, SiThreedotjs, SiMongodb, SiSupabase, SiCanva, SiBurpsuite, SiOwasp } from 'react-icons/si'
 
 const About = () => {
   const containerRef = useRef(null)

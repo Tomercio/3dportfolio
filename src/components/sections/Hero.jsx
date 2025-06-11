@@ -89,12 +89,12 @@ const Hero = () => {
                   variants={itemVariants} 
                   className="text-xl md:text-2xl text-gray-300 mb-6"
                 >
-                  <span className="font-mono">Web Developer & </span> <span className="font-mono">Researcher</span>
+                  <span className="font-mono">Developer & </span> <span className="font-mono">Researcher</span>
                 </motion.h2>
                 
                 <motion.div variants={itemVariants}>
                   <p className="text-gray-400 max-w-xl mb-8 text-sm md:text-base">
-                    Building innovative digital solutions with a business-driven mindset.
+                  Developer and Security Analyst specializing in OSINT research and threat data analysis, with hands-on experience. Skilled web developer, building automated pipelines and visualization tools to surface actionable insights. Continuously exploring emerging threats and enhancing security through code-driven solutions.
                   </p>
                 </motion.div>
                 
