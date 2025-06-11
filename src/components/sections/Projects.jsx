@@ -78,8 +78,15 @@ const Projects = () => {
       title: 'Peteks App',
       details: 'PETEKS is a Flutter-built note-taking app that combines rich-text editing (via flutter_quill), multimedia embeds and pattern-lock security for encrypted access. It leverages local/cloud storage, image and share services to enable seamless syncing and collaborative editing across devices.',
       image: '/peteksScreen.jpg',
-      tags: ['Flutter', 'Dart', 'Rich-text Editor','Audio recording/playback', 'Security/locking', 'Hashing/crypto'],
+      tags: ['Flutter', 'Dart', 'Rich-text Editor', 'Security/locking', 'Hashing/crypto'],
       githubUrl: 'https://github.com/Tomercio',
+    },
+    {
+      title: 'Trilligence',
+      details: 'Trilligence aggregates OSINT feeds into a unified, searchable interface with a React UI and automated Python/JavaScript ingestion. It correlates data, maps indicators to MITRE ATT&CK, and provides visualizations and reports for efficient threat analysis.',
+      image: '/trili.png',
+      tags: ['Vite', 'React', 'Tailwind'],
+      githubUrl: 'trilligence.vercel.app',
     },
   ]
   
