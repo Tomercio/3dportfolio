@@ -55,7 +55,7 @@ const About = () => {
             <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">About Me</h2>
             <div className="w-16 h-1 bg-primary-500 mx-auto mb-4"></div>
             <p className="text-gray-400 text-sm md:text-base">
-              From business development to Web Development.
+              From Business Development to Web & Security Development.
             </p>
           </div>
           
