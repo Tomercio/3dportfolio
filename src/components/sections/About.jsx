@@ -21,13 +21,13 @@ const About = () => {
     },
     {
       period: "2023-2024",
-      title: "Transition to Development",
-      description: "Made a focused transition to web development, building a foundation in JavaScript, React, Web Securityand modern frontend tools."
+      title: "Transition to Development & Security",
+      description: "Made a focused transition to web development and security, building a foundation in JavaScript, React, Web Security, modern tools, Cybersecurity and OSINT research."
     },
     {
       period: "2024-Present",
-      title: "Developer & Researcher",
-      description: "Building rich web interfaces and mobile applications using modern technologies and best practices."
+      title: "Developer & Security Analyst",
+      description: "Building rich web interfaces and mobile applications using modern technologies and best practices. Security Analyst specializing in OSINT research and threat data analysis, with hands-on experience."
     }
   ]
   
@@ -73,10 +73,10 @@ const About = () => {
                 With a unique background that bridges business and technology, I bring a holistic perspective to development projects. My experience in sales has instilled a deep understanding of client needs and market positioning.
               </p>
               <p className="text-gray-300 text-sm md:text-base">
-                For the past two years, I've been building web interfaces using modern technologies like React, Tailwind CSS, and Three.js, focusing on exceptional user experiences.
+                For the past two years, I've been building web interfaces and security tools using modern technologies, focusing on exceptional user experiences.
               </p>
               <p className="text-gray-300 text-sm md:text-base">
-                I'm passionate about creating efficient, scalable, and user-friendly applications that solve real-world problems.
+                I'm passionate about creating efficient, scalable, and user-friendly applications that solve real-world problems and research threats.
               </p>
             </motion.div>
             
